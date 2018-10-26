@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#EEEEEE"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp"
+     >
+
+    <View
+        android:layout_width="0dip"
+        android:layout_height="1px"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:id="@+id/ll_bottom_template"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:layout_weight="4"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingLeft="2dip"
+        android:paddingRight="2dip" >
+<!-- 保存 -->
+        <Button
+            android:id="@+id/set_save_button"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="10"
+            android:background="@drawable/selector_login_btn"
+            android:textSize="22sp"
+            android:textColor="#ffffff"
+            android:gravity="center"
+            android:text="保存" />
+
+         <View
+        android:layout_width="0dip"
+        android:layout_height="1px"
+        android:layout_weight="1" />
+
+<!-- 返回 -->     
+        <Button
+            android:id="@+id/set_back_button"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="10"
+            android:background="@drawable/selector_login_btn"
+            android:textSize="22sp"
+            android:textColor="#ffffff"
+            android:gravity="center"
+            android:text="返回" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="0dip"
+        android:layout_height="1px"
+        android:layout_weight="1" />
+
+</LinearLayout>

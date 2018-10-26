@@ -1,0 +1,63 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.jakewharton.butterknife'
+android {
+    compileSdkVersion 23
+    buildToolsVersion '25.0.0'
+
+    defaultConfig {
+        applicationId "com.contec.cmsapp"
+        minSdkVersion 16
+        targetSdkVersion 23
+        versionCode 4
+        versionName "4.0"
+        multiDexEnabled true
+    }
+    signingConfigs {
+        release {
+            keyAlias 'cmskey'
+            keyPassword '8015549'
+            storePassword '8015549'
+            storeFile file('D:/studio/CMSAPP/key.jks')
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+        debug {
+            signingConfig signingConfigs.release
+        }
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+    android.applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            output.outputFile = new File(output.outputFile.parent,  "CMSAPP-v" +
+                    defaultConfig.versionName + ".1" + ".apk" );
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'org.greenrobot:eventbus:3.1.1'
+    compile('com.jakewharton:butterknife:8.8.1') {
+        exclude module: 'support-v4'
+        exclude group: 'com.android.support'
+    }
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    compile files('libs/phmsnet.jar')
+    compile('io.socket:socket.io-client:1.0.0') {
+        // excluding org.json which is provided by Android
+        exclude group: 'org.json', module: 'json'
+    }
+    compile files('libs/BaiduLBS_Android.jar')
+   // compile 'io.agora.rtc:full-sdk:2.2.0'
+}
